@@ -1,19 +1,19 @@
 :root {
-  --primary: #0f172a;       /* Bleu marine profond (Online English) */
-  --accent: #0ea5e9;        /* Bleu cyan moderne pour les boutons et focus */
+  --primary: #1C3D5A;       /* Bleu foncé */
+  --accent: #F58634;        /* Orange */
   --bg: #f8fafc;            /* Fond de page clair */
   --card: #ffffff;          /* Fond des conteneurs */
-  --text: #334155;          /* Couleur de texte principale */
-  --text-dark: #0f172a;     /* Texte plus prononcé */
+  --text: #475569;          /* Couleur de texte principale */
+  --text-dark: #1C3D5A;     /* Texte plus prononcé */
   --border: #e2e8f0;        /* Bordures légères */
   --nav-bg: #f1f5f9;        /* Fond de la navigation */
-  --success: #10b981;       /* Vert succès */
+  --success: #52B788;       /* Vert succès */
   --error: #ef4444;         /* Rouge erreur */
 }
 
 [data-theme="dark"] {
-  --primary: #38bdf8;
-  --accent: #0ea5e9;
+  --primary: #F58634;
+  --accent: #1C3D5A;
   --bg: #0b0f19;
   --card: #1e293b;
   --text: #cbd5e1;
@@ -59,6 +59,7 @@ header {
 
 [data-theme="dark"] header {
   background: #111827;
+  border-bottom: 3px solid var(--primary);
 }
 
 header h1 {
@@ -213,7 +214,7 @@ nav button.active {
 }
 
 .btn-primary:hover, .verb-card button:hover {
-  background: #0284c7;
+  background: #d96e20;
 }
 
 .verb-card button {
@@ -308,6 +309,58 @@ nav button.active {
 
 #audioOptions {
   margin-top: 20px;
+}
+
+/* Zone de Matching Grille */
+.matching-board {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.matching-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.matching-item {
+  background: var(--bg);
+  border: 2px solid var(--border);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.matching-item:hover {
+  border-color: var(--accent);
+}
+
+.matching-item.selected {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.matching-item.matched {
+  background: var(--success);
+  color: white;
+  border-color: var(--success);
+  cursor: default;
+  opacity: 0.65;
+}
+
+.matching-item.error {
+  background: var(--error);
+  color: white;
+  border-color: var(--error);
 }
 
 .status-message {
